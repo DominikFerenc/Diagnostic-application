@@ -1,0 +1,14 @@
+<nav class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-xl font-bold">App Name</a>
+        <div class="flex space-x-4">
+            <a *ngIf="!isLoggedIn" routerLink="/login" class="hover:text-blue-400">Login</a>
+            <a *ngIf="!isLoggedIn" routerLink="/register" class="hover:text-blue-400">Register</a>
+            <span *ngIf="isLoggedIn" class="text-white">Witaj, {{ username }}</span>
+            <button *ngIf="isLoggedIn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                (click)="logout()">
+                Wyloguj
+            </button>
+        </div>
+    </div>
+</nav>

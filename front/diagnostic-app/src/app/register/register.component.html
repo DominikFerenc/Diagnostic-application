@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-center mb-6">Register</h2>
+        <form (ngSubmit)="register()" class="space-y-4">
+            <div>
+                <label for="username" class="block text-sm font-medium">Username</label>
+                <input type="text" id="username" [(ngModel)]="username" name="username" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium">Email</label>
+                <input type="email" id="email" [(ngModel)]="email" name="email" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium">Password</label>
+                <input type="password" id="password" [(ngModel)]="password" name="password" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                Register
+            </button>
+        </form>
+
+        <p *ngIf="errorMessage" class="text-red-500 mt-4 text-center">
+            {{ errorMessage }}
+        </p>
+
+        <p class="text-sm text-center mt-4">
+            Already have an account?
+            <a routerLink="/login" class="text-blue-500 hover:underline">Login here</a>
+        </p>
+    </div>
+</div>
