@@ -1,6 +1,6 @@
 import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +27,7 @@ import { AddDeviceComponent } from './add-device/add-device.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient()
