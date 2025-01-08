@@ -7,6 +7,25 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_POST
 from requests import Response
+from .serializers import DeviceSerializer
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+
+
+
+class AddDevice(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(request_body=DeviceSerializer)
+    def post(self, request):
+        serializer = DeviceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(added_by=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 def register_user(request):
@@ -45,3 +64,5 @@ def login_user(request):
         else:
             return JsonResponse({"error": "Invalid credentials"}, status=401)
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+
