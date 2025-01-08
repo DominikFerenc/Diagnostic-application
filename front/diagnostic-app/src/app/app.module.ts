@@ -10,6 +10,8 @@ import { FeedComponent } from './feed/feed.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
+import { DeviceListComponent } from './device-list/device-list.component';
+import { AddDeviceComponent } from './add-device/add-device.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     FeedComponent,
     NavbarComponent,
+    DeviceListComponent,
+    AddDeviceComponent,
   ],
   imports: [
     BrowserModule,
